@@ -7,16 +7,16 @@
             <column name="id"/>
             <generator class="identity"/>
         </id>
-        <property name="creatorId" column="creator_id"/>
+        <property name="creator" column="creator_id"/>
         <property name="name" column="name"/>
 
 
 
-        <bag name="message" fetch="join">
+        <bag name="messages" fetch="join">
             <key>
                 <column name="chat_id"/>
             </key>
-            <one-to-many class="models.Message"/>
+            <one-to-one class="ru.itis.models.Message" "/>
         </bag>
 
     </class>

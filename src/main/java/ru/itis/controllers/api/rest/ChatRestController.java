@@ -17,8 +17,8 @@ public class ChatRestController {
     @Autowired
     private ChatService chatService;
 
-    @GetMapping(value = "/chat/{chat-id}/", params = "filter = chat")
-    public List<ChatDto> getAllChats(@PathVariable("chat-id") int chatId,
+    @GetMapping(value = "/chat/{chat-id}", params = "filter = chat")
+    public List<ChatDto> getMessages(@PathVariable("chat-id") int chatId,
                                      @RequestParam("chat") Chat chat);
         List<Chat> chat= chatService.findAll();
 

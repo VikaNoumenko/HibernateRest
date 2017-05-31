@@ -4,10 +4,12 @@ MessageController @author Victoria Noumenko
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ru.itis.models.Message;
+import org.springframework.ui.ModelMap;
 import ru.itis.services.MessageService;
 
 import java.util.List;
@@ -27,12 +29,12 @@ public class MessageController {
         return result;
 
 
-//        @RequestMapping(value = "/views/ftl/messageView", method = RequestMethod.GET)
-//        public String getAll(@ModelAttribute("model")ModelMap model) {
-//            List<Message> messages = messageService.findAll();
-//            model.addAttribute("messageModel", messages);
-//            return "messageView";
-//        }
+        @RequestMapping(value = "/views/ftl/messageView", method = RequestMethod.GET)
+        public String getAll(@ModelAttribute("model")ModelMap model) {
+            List<Message> messages = messageService.findAll();
+            model.addAttribute("messageModel", messages);
+            return "messageView";
+        }
     }
 
 
